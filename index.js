@@ -1,4 +1,4 @@
-var requireSDK = require("require-sdk");
+var requireSDK = require('./lib/require-sdk');
 
 /**
  * This module give you access to youtube iframe player api.
@@ -29,16 +29,16 @@ module.exports = {
    * @return player             A reference of the player.
    */
   createPlayer: function(containerID, params) {
-    return this.player = new YT.Player(containerID, params); 
+    return this.player = new YT.Player(containerID, params);
   },
   /**
-   * Load a video (youtube video ID) in the player. 
+   * Load a video (youtube video ID) in the player.
    * @param  {[type]} videoID [description]
    * @return {[type]}         [description]
    */
   loadVideo: function(videoID) {
     if(this.player) {
-        this.player.loadVideoById(videoID);    
+        this.player.loadVideoById(videoID);
     } else {
         console.log('You should create.');
     }
@@ -52,7 +52,7 @@ module.exports = {
     this.player.playVideo();
   },
   /**
-   * Stops and cancels loading of the current video. 
+   * Stops and cancels loading of the current video.
    * This function should be reserved for rare situations when you know that the user will not be
    * watching additional video in the player.
    * https://developers.google.com/youtube/iframe_api_reference#stopVideo
